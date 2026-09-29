@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --background: #f5f8fc;
+    --foreground: #10243e;
+    --card: #ffffff;
+    --card-foreground: #10243e;
+    --border: #e2eaf3;
+    --primary: #0ea5e9;
+    --primary-dark: #0284c7;
+    --accent-glow: #38bdf8;
+    --brand-blue: #1769e0;
+    --teal: #10b981;
+    --text-navy: #10243e;
+    --text-slate: #1e293b;
+    --text-muted: #64748b;
+  }
+}
+
+body {
+  background-color: #f5f8fc;
+  color: #10243e;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for AEROCAST light mode */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f6fc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd8e8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a8c2;
+}
+
+/* Clean White Glassmorphism Utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 234, 243, 0.95);
+  box-shadow: 0 4px 20px -2px rgba(16, 36, 62, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s ease;
+}
+.glass-panel-hover:hover {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 10px 28px -4px rgba(16, 36, 62, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Subtle sky blue micro-glow */
+.soft-glow-sky {
+  box-shadow: 0 0 35px -5px rgba(14, 165, 233, 0.2);
+}
+
+/* Pulsing radar indicator for live markers */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+}
+
+.pulsing-indicator {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
