@@ -125,12 +125,12 @@ export default function HomePage() {
   return (
     <div className="relative overflow-hidden bg-[#f5f8fc]">
       {/* Delhi Landmarks Dynamic Backdrop Carousel with Crossfade */}
-      <div className="absolute top-0 inset-x-0 h-[560px] overflow-hidden pointer-events-none z-0">
+      <div className="absolute top-0 inset-x-0 h-[560px] overflow-hidden pointer-events-none z-[-1]">
         {delhiLandmarks.map((landmark, idx) => (
           <div
             key={landmark.image}
             className={`absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide ? "opacity-30 scale-100" : "opacity-0 scale-105"
+              idx === currentSlide ? "opacity-85 scale-100" : "opacity-0 scale-105"
             }`}
             style={{
               backgroundImage: `url('${landmark.image}')`,
@@ -140,7 +140,7 @@ export default function HomePage() {
           />
         ))}
         {/* Smooth gradient overlay to ensure crystal clear contrast with light UI cards */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/85 to-[#f5f8fc]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/45 to-[#f5f8fc]" />
       </div>
 
       {/* Hero Section */}
@@ -261,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* Key Meteorological & Pollutant Metrics */}
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#10243e]">Atmospheric &amp; Pollutant Matrix</h2>
@@ -317,7 +317,7 @@ export default function HomePage() {
       </section>
 
       {/* 72-Hour Forecast Preview Section */}
-      <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#e2eaf3] gap-2">
           <div>
             <span className="text-xs uppercase tracking-wider text-[#0ea5e9] font-bold">
@@ -341,7 +341,7 @@ export default function HomePage() {
       </section>
 
       {/* Hotspots & Cleanest Zones Leaderboard with Interactive Modal Trigger */}
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#10243e]">Spatial Station Observations</h2>
@@ -419,7 +419,7 @@ export default function HomePage() {
       </section>
 
       {/* Citizen Alert Notification Call-to-action */}
-      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-r from-[#1769e0] via-[#0284c7] to-[#0ea5e9] p-8 sm:p-12 shadow-xl shadow-[#0ea5e9]/20 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-sky-200 uppercase tracking-wider mb-2">
