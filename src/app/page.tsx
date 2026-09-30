@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AQIGauge from "@/components/AQIGauge";
 import AQIScale from "@/components/AQIScale";
 import MetricCard from "@/components/MetricCard";
@@ -129,15 +130,19 @@ export default function HomePage() {
         {delhiLandmarks.map((landmark, idx) => (
           <div
             key={landmark.image}
-            className={`absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-              idx === currentSlide ? "opacity-85 scale-100" : "opacity-0 scale-105"
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? "opacity-85" : "opacity-0"
             }`}
-            style={{
-              backgroundImage: `url('${landmark.image}')`,
-              transitionProperty: "opacity, transform",
-              transitionDuration: "1000ms",
-            }}
-          />
+          >
+            <Image
+              src={landmark.image}
+              alt={landmark.name}
+              fill
+              priority={idx === 0}
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </div>
         ))}
         {/* Smooth gradient overlay to ensure crystal clear contrast with light UI cards */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/45 to-[#f5f8fc]" />
